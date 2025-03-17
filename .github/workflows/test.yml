@@ -20,13 +20,16 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Initialize and update Git submodules  # ✅ New Step
+        run: git submodule update --init --recursive
+
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
 
       - name: Show Forge version
         run: forge --version
 
-      - name: Install Dependencies  # ✅ Add this step
+      - name: Install Dependencies
         run: |
           forge install
           forge remappings > remappings.txt
