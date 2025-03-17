@@ -27,6 +27,11 @@ jobs:
         run: |
           forge --version
 
+      - name: Install Dependencies  # ✅ ADD THIS STEP
+        run: |
+          forge install
+          forge remappings > remappings.txt
+
       - name: Run Forge fmt
         run: |
           forge fmt --check
@@ -41,3 +46,4 @@ jobs:
         run: |
           forge test -vvv
         id: test
+
